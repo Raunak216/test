@@ -1,9 +1,11 @@
-import Component1 from "@/components/sections/Component1";
+import EventPage from "@/components/sections/Events/eventpage";
 
 export default function Home() {
   return (
     <main>
-      <Component1 />
+      
+      <EventPage />
+   
     </main>
   );
 }
