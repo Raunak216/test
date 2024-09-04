@@ -1,9 +1,12 @@
-import Component1 from "@/components/sections/Component1";
-
+import StickyStack from '@/components/StickyStack';
+import MarqueeComponent from '../components/MarqueeComponent';
 export default function Home() {
+
   return (
     <main>
-      <Component1 />
+      <StickyStack />
+      <MarqueeComponent />
     </main>
   );
 }
+
