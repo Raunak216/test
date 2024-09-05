@@ -3,7 +3,7 @@
 import { Canvas, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { useLoader } from '@react-three/fiber';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Float, OrbitControls, Environment } from '@react-three/drei';
 import gsap from 'gsap';
 import dynamic from 'next/dynamic';
@@ -50,9 +50,37 @@ function CameraControls() {
       controls.enabled = false;
     };
 
+    const handleTouchStart = (event) => {
+      if (event.touches.length === 2) {
+        controls.enabled = true;
+      } else if (event.touches.length === 1) {
+        controls.enabled = false;
+      }
+    };
+
+    const handleTouchMove = (event) => {
+      if (event.touches.length === 2) {
+        controls.enabled = true;
+      } else {
+        controls.enabled = false;
+      }
+    };
+
+    const handleTouchEnd = (event) => {
+      if (event.touches.length === 0) {
+        controls.enabled = true; // Re-enable controls after touch ends
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('touchend', handleTouchEnd);
     controls.addEventListener('end', handleEnd);
 
     return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
       controls.removeEventListener('end', handleEnd);
     };
   }, [camera, initialPosition, initialTarget]);
@@ -70,22 +98,48 @@ function CameraControls() {
 }
 
 const Stuff = () => {
-  
+  const [startY, setStartY] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+
   if (typeof window === 'undefined') return null;
 
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 1) {
+      setStartY(e.touches[0].clientY);
+      setIsSwiping(true);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isSwiping) {
+      const deltaY = startY - e.touches[0].clientY;
+      window.scrollBy(0, deltaY);
+      setStartY(e.touches[0].clientY);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsSwiping(false);
+  };
+
   return (
-    <Canvas>
+    <Canvas
+      style={{ touchAction: 'none' }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <CameraControls />
       <directionalLight castShadow position={[2, 3, 4]} intensity={3} />
       <ambientLight intensity={0.5} />
       <Environment preset="city" />
-      <Float speed={1.2} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.2, .25]}>
+      <Float speed={1.2} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.2, 0.25]}>
         <primitive
           object={model.scene}
           scale={0.87}
-          position-y={-1}
+          position-y={-1.6}
           rotation-y={Math.PI * 1.47}
           rotation-z={Math.PI * 2}
           rotation-x={Math.PI * 2}
