@@ -51,21 +51,24 @@ function CameraControls() {
     };
 
     const handleTouchStart = (event) => {
-      
       if (event.touches.length === 2) {
         controls.enabled = true;
+      } else if (event.touches.length === 1) {
+        controls.enabled = false;
       }
     };
 
     const handleTouchMove = (event) => {
-      
-      controls.enabled = event.touches.length === 2;
+      if (event.touches.length === 2) {
+        controls.enabled = true;
+      } else {
+        controls.enabled = false;
+      }
     };
 
     const handleTouchEnd = (event) => {
-      
       if (event.touches.length === 0) {
-        controls.enabled = false;
+        controls.enabled = true; // Re-enable controls after touch ends
       }
     };
 
@@ -95,31 +98,30 @@ function CameraControls() {
 }
 
 const Stuff = () => {
-  const [startY, setStartY] = useState(0); 
-  const [isSwiping, setIsSwiping] = useState(false); 
+  const [startY, setStartY] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
 
   if (typeof window === 'undefined') return null;
 
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
-  
   const handleTouchStart = (e) => {
     if (e.touches.length === 1) {
-      setStartY(e.touches[0].clientY); 
-      setIsSwiping(true); 
+      setStartY(e.touches[0].clientY);
+      setIsSwiping(true);
     }
   };
 
   const handleTouchMove = (e) => {
     if (isSwiping) {
-      const deltaY = startY - e.touches[0].clientY; 
-      window.scrollBy(0, deltaY); 
-      setStartY(e.touches[0].clientY); 
+      const deltaY = startY - e.touches[0].clientY;
+      window.scrollBy(0, deltaY);
+      setStartY(e.touches[0].clientY);
     }
   };
 
   const handleTouchEnd = () => {
-    setIsSwiping(false); 
+    setIsSwiping(false);
   };
 
   return (
