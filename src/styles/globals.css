@@ -9,6 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 @layer base {
   :root {
@@ -80,7 +81,9 @@
   font-weight: 600;
   font-style: normal;
 }
-
+.shadow-text {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
 
 /* .pirata-one-regular {
   font-family: "Pirata One", system-ui;
@@ -121,6 +124,19 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.anton-regular {
+  font-family: "Anton-Regular", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.uber-move {
+  font-family: "Uber Move", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 @font-face {
   font-family: "Mukta Malar";
   src: url("./../../public/MuktaMalar-Regular.ttf");
@@ -137,6 +153,11 @@
 @font-face {
   font-family: "Uber Move";
   src: url("./../../public/UberMoveTextRegular.otf");
+}
+
+@font-face {
+  font-family: "Anton-Regular";
+  src: url("./../../public/Anton-Regular.ttf");
 }
 
 .Altera-6 {
