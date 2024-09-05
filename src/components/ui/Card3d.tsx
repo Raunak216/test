@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
+import Image from 'next/image';
+import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
 
 export function ThreeDCardDemo() {
   return (
@@ -17,8 +17,9 @@ export function ThreeDCardDemo() {
                 >
                   Cook Off 9.0
                 </CardItem>
+                {/* Replaced <p> with a <div> to avoid nested <p> */}
                 <CardItem
-                  as="p"
+                  as="div"
                   translateZ="20"
                   className="text-black leading-relaxed text-base max-w-sm mt-8 mukta-malar-regular text-right"
                 >
@@ -42,10 +43,8 @@ export function ThreeDCardDemo() {
                 </div>
               </div>
               <div className="border-[#202020] md:border-l-2 pl-2 mr-auto">
-                <div className="border-[#202020] border-8 p-0.5 ">
+                <div className="border-[#202020] border-8 p-0.5">
                   <CardItem
-                  
-                    
                     rotateX={-10}
                     rotateY={-15}
                     rotateZ={2}
