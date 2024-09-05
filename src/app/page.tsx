@@ -4,6 +4,7 @@ import Footer from "@/components/sections/footer";
 import StickyStack from '@/components/StickyStack';
 import MarqueeComponent from '../components/MarqueeComponent';
 import Stuff from '@/components/Stuff';
+import EventPage from "@/components/sections/Events/eventpage";
 
 export default function Home() {
 
@@ -14,6 +15,8 @@ export default function Home() {
       <div className="w-full h-screen absolute top-32">
       <Stuff ></Stuff>
       </div>
+
+      <EventPage />
       
       <StickyStack />
       <MarqueeComponent />
