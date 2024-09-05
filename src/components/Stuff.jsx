@@ -51,19 +51,19 @@ function CameraControls() {
     };
 
     const handleTouchStart = (event) => {
-      // Enable controls only if exactly two fingers are used
+      
       if (event.touches.length === 2) {
         controls.enabled = true;
       }
     };
 
     const handleTouchMove = (event) => {
-      // Keep controls enabled if two fingers are used, otherwise disable
+      
       controls.enabled = event.touches.length === 2;
     };
 
     const handleTouchEnd = (event) => {
-      // Disable controls when no touches are left
+      
       if (event.touches.length === 0) {
         controls.enabled = false;
       }
@@ -95,31 +95,31 @@ function CameraControls() {
 }
 
 const Stuff = () => {
-  const [startY, setStartY] = useState(0); // Track starting Y position of touch
-  const [isSwiping, setIsSwiping] = useState(false); // Track if a swipe is occurring
+  const [startY, setStartY] = useState(0); 
+  const [isSwiping, setIsSwiping] = useState(false); 
 
   if (typeof window === 'undefined') return null;
 
   const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
-  // Handle swipe to scroll
+  
   const handleTouchStart = (e) => {
     if (e.touches.length === 1) {
-      setStartY(e.touches[0].clientY); // Set the starting Y position of the swipe
-      setIsSwiping(true); // Start swipe detection
+      setStartY(e.touches[0].clientY); 
+      setIsSwiping(true); 
     }
   };
 
   const handleTouchMove = (e) => {
     if (isSwiping) {
-      const deltaY = startY - e.touches[0].clientY; // Calculate the swipe distance
-      window.scrollBy(0, deltaY); // Scroll the page vertically based on the swipe
-      setStartY(e.touches[0].clientY); // Update the starting Y position
+      const deltaY = startY - e.touches[0].clientY; 
+      window.scrollBy(0, deltaY); 
+      setStartY(e.touches[0].clientY); 
     }
   };
 
   const handleTouchEnd = () => {
-    setIsSwiping(false); // End swipe detection
+    setIsSwiping(false); 
   };
 
   return (
