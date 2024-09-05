@@ -6,12 +6,11 @@ import { useLoader } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { Float, OrbitControls, Environment } from '@react-three/drei';
 import gsap from 'gsap';
+import dynamic from 'next/dynamic';
 
 function CameraControls() {
   const { camera } = useThree();
   const controlsRef = useRef();
-
- 
   const initialPosition = [2, 2, 5];
   const initialTarget = [0, -1, 0];
 
@@ -24,7 +23,6 @@ function CameraControls() {
     const controls = controlsRef.current;
 
     const handleEnd = () => {
-     
       gsap.to(camera.position, {
         x: initialPosition[0],
         y: initialPosition[1],
@@ -33,10 +31,9 @@ function CameraControls() {
         ease: 'power3.out',
         onUpdate: () => {
           camera.lookAt(...initialTarget);
-          controls.update(); 
+          controls.update();
         },
         onComplete: () => {
-         
           controls.enabled = true;
         },
       });
@@ -50,13 +47,11 @@ function CameraControls() {
         onUpdate: () => controls.update(),
       });
 
-      
       controls.enabled = false;
     };
 
     controls.addEventListener('end', handleEnd);
 
-   
     return () => {
       controls.removeEventListener('end', handleEnd);
     };
@@ -67,40 +62,37 @@ function CameraControls() {
       ref={controlsRef}
       enablePan={false}
       enableZoom={false}
-      maxPolarAngle={Math.PI / 2 + Math.PI / 10} 
-      maxAzimuthAngle={Math.PI / 3 + Math.PI / 10} 
-      minAzimuthAngle={-Math.PI / 3 - Math.PI / 10} 
+      maxPolarAngle={Math.PI / 2 + Math.PI / 10}
+      maxAzimuthAngle={Math.PI / 3 + Math.PI / 10}
+      minAzimuthAngle={-Math.PI / 3 - Math.PI / 10}
     />
   );
 }
 
-export default function Stuff() {
-  const model = useLoader(GLTFLoader, './Computer.glb');
+const Stuff = () => {
+  
+  if (typeof window === 'undefined') return null;
+
+  const model = useLoader(GLTFLoader, '/models/Computer.glb');
 
   return (
-    <>
-      <Canvas>
-        <CameraControls />
-        <directionalLight castShadow position={[2, 3, 4]} intensity={3} />
-        <ambientLight intensity={0.5} />
-        <Environment preset='city' />
-
-        <Float
-          speed={1.2}
-          rotationIntensity={0.7}
-          floatIntensity={2}
-          floatingRange={[-0.4, 0]}
-        >
-          <primitive
-            object={model.scene}
-            scale={0.87}
-            position-y={-1}
-            rotation-y={Math.PI * 1.47}
-            rotation-z={Math.PI * 2}
-            rotation-x={Math.PI * 2}
-          />
-        </Float>
-      </Canvas>
-    </>
+    <Canvas>
+      <CameraControls />
+      <directionalLight castShadow position={[2, 3, 4]} intensity={3} />
+      <ambientLight intensity={0.5} />
+      <Environment preset="city" />
+      <Float speed={1.2} rotationIntensity={0.7} floatIntensity={1.5} floatingRange={[-0.2, .25]}>
+        <primitive
+          object={model.scene}
+          scale={0.87}
+          position-y={-1}
+          rotation-y={Math.PI * 1.47}
+          rotation-z={Math.PI * 2}
+          rotation-x={Math.PI * 2}
+        />
+      </Float>
+    </Canvas>
   );
-}
+};
+
+export default dynamic(() => Promise.resolve(Stuff), { ssr: false });
