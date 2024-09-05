@@ -134,6 +134,10 @@
   font-family: "Altera 6";
   src: url("./../../public/Altera\ 6.0.0.140.ttf");
 }
+@font-face {
+  font-family: "Uber Move";
+  src: url("./../../public/UberMoveTextRegular.otf");
+}
 
 .Altera-6 {
   font-family: "Altera 6", sans-serif;
@@ -164,6 +168,11 @@
   image-rendering: pixelated;
   pointer-events: none;
   animation: GrainOverlay_noise__MsKWx 5s steps(4) infinite;
+}
+
+@font-face {
+  font-family: "Anton Regular";
+  src: url("./../../public/Anton-Regular.ttf");
 }
 /* ********************** */
 
