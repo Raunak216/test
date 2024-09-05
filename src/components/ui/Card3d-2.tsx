@@ -55,7 +55,7 @@ export function ThreeDCardDemo2() {
                 <CardItem
                   as="div"
                   translateZ="20"
-                  className="text-black leading-relaxed text-lg max-w-sm  uber-move text-center md:text-left"
+                  className="text-black leading-relaxed text-lg max-w-sm  uber-move text-center md:text-left shadow-text"
                 >
                   <p>
                     Some copy detailing why it would be great to join this 
