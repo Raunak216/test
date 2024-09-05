@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import mmLogo from "@/assets/mmLogo.png"
 
 const Navbar = () => {
 
@@ -44,7 +45,22 @@ const Navbar = () => {
             }} className="raleway-dots-regular w-full flex justify-center text-white text-center">
                 CO-HOSTED BY 
             </div>
-        </div>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "-25px"
+            }}>
+            <Image src={mmLogo} alt="muscle mind logo" height={80} width={80}/>
+            
+            </div>
+            <div style={{
+                fontFamily: "AudioWide-Regular",
+                fontStyle: "normal",
+                fontWeight: 100,
+            }} className="raleway-dots-regular w-full flex justify-center text-white text-center">
+                Musclemind
+            </div>
+        </div> 
     );
 };
 
