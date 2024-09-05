@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import mmLogo from "@/assets/mmLogo.png";
+import ccLogo from "@/assets/Vector.svg";
 
 const Navbar = () => {
   return (
@@ -10,7 +11,7 @@ const Navbar = () => {
           href="/"
           className="h-[74px] ml-2 sm:ml-4 md:ml-6 mt-3 pt-0 flex-shrink-0"
         >
-          <Image src="/vector.svg" alt="Codechef_Logo" width={74} height={15} />
+          <Image src={ccLogo} alt="Codechef_Logo" width={74} height={15} />
         </Link>
 
         <ul

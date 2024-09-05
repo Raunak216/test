@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ccLogo from "@/assets/CodeChef-VIT_Logo.svg";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="flex-shrink-0 ml-2 sm:ml-4 md:ml-10">
           <Image
             className="Codechef_Logo max-w-full"
-            src="/Codechef-VIT_Logo.svg"
+            src={ccLogo}
             alt="Codechef_Logo"
             width={60}
             height={60}
@@ -30,22 +31,28 @@ const Footer = () => {
 
       <div className="h-[15vh] bg-black flex items-center justify-between px-4 sm:px-6 md:px-20 text-white">
         <div className="flex items-center ml-2 sm:ml-4 md:ml-10">
-          <span className="px-2 sm:px-4 md:px-8 text-sm sm:text-lg md:text-3xl">Powered By :</span>
-          <span className="font-bold text-lg sm:text-xl md:text-2xl">musclemind</span>
+          <span className="px-2 sm:px-4 md:px-8 text-sm sm:text-lg md:text-3xl">
+            Powered By :
+          </span>
+          <span className="font-bold text-lg sm:text-xl md:text-2xl">
+            musclemind
+          </span>
         </div>
 
         <div className="flex space-x-3 sm:space-x-6 md:space-x-11 mr-2 sm:mr-4 md:mr-10">
-          {["Facebook", "Twitter", "Youtube", "insta", "Linkedin"].map((platform) => (
-            <Link key={platform} href="/">
-              <Image
-                className="footer-logo max-w-full"
-                src={`${platform}.svg`}
-                alt={`${platform} Logo`}
-                width={24}
-                height={24}
-              />
-            </Link>
-          ))}
+          {["Facebook", "Twitter", "Youtube", "insta", "Linkedin"].map(
+            (platform) => (
+              <Link key={platform} href="/">
+                <Image
+                  className="footer-logo max-w-full"
+                  src={`${platform}.svg`}
+                  alt={`${platform} Logo`}
+                  width={24}
+                  height={24}
+                />
+              </Link>
+            )
+          )}
         </div>
       </div>
     </div>
