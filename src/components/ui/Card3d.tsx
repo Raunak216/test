@@ -31,12 +31,12 @@ export function ThreeDCardDemo() {
                     the largest Competitive Coding contest in VIT’s tech-fest?
                   </p>
                 </CardItem>
-                <div className="relative inline-block group mt-10 justify-end">
+                <div className="relative inline-block group mt-10 md:mx-0 mx-[132px]">
                   <div className="absolute inset-0 bg-[#D9D9D9] border-4 border-black transform transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
                   <CardItem
                     translateZ={20}
                     as="button"
-                    className="relative bg-[#202020] text-white border-black border-2 font-bold py-2 px-8 cursor-pointer  md:text-xl text-sm  ibm-plex-mono-bold hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2"
+                    className="relative bg-[#202020] text-white border-black border-2 font-bold py-2 md:px-8 px-2 cursor-pointer  md:text-xl text-sm  ibm-plex-mono-bold hover:bg-[#D9D9D9] hover:text-black hover:border-black hover:border-2"
                   >
                     GET COOKING
                   </CardItem>
