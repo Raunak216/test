@@ -18,7 +18,7 @@ export default function Home() {
 
       <EventPage />
       
-      <StickyStack />
+      {/* <StickyStack /> */}
       <MarqueeComponent />
       <Footer/>
 

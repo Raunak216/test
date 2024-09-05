@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThreeDCardDemo } from '@/components/ui/Card3d';
-
+import { ThreeDCardDemo2 } from '@/components/ui/Card3d-2';
 const EventPage: React.FC = () => {
   return (
     <div className="bg-black text-white py-12 text-center font-['IBM_Plex_Mono'] min-h-screen flex flex-col justify-center items-center">
@@ -9,6 +9,7 @@ const EventPage: React.FC = () => {
         Lorem ipsum dolor sit amet consectetur. Enim quis <strong className="text-[#B7AB98]">COOKOFF</strong> sed magna est. Elit tellus tempor amet accumsan sit pellentesque <strong className="text-[#B7AB98]">CLUEMINATI</strong>. Velit lectus amet nunc at ultrices volutpat. Pellentesque arcu malesuada ac egestas justo blandit. Elit tellus tempor amet accumsan sit pellentesque feugiat. Velit lectus amet nunc at ultrices volutpat. Pellentesque arcu malesuada ac egestas justo blandit.
       </p>
       <ThreeDCardDemo />
+      <ThreeDCardDemo2 />
     </div>
   );
 };
