@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-three/drei": "^9.112.0",
+    "@react-three/fiber": "^8.17.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "gsap": "^3.12.5",
     "husky": "^9.1.5",
     "lucide-react": "^0.428.0",
     "next": "14.2.5",
@@ -20,7 +23,8 @@
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.168.0"
   },
   "devDependencies": {
     "@types/node": "^20",
