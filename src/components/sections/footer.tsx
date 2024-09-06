@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CC_vit_logo from "../../assets/CodeChef-VIT_Logo.svg";
 // import ccLogo from "/CodeChef-VIT_Logo.svg";
 
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
         <div className="flex-shrink-1 ">
           <Image
             className="lg:mr-[40px] w-[130px] sm:w-[150px] md:w-[180px] lg:w-[200px] Codechef_Logo max-w-full"
-            src="/CodeChef-VIT_Logo.svg"
+            src={CC_vit_logo}
             alt="Codechef_Logo"
             width={60}
             height={60}

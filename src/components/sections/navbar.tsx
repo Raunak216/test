@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-// import mmLogo from "/mmLogo.png";
-// import ccLogo from "/Vector.svg";
+import mmLogo from "../../assets/mmLogo.png";
+import ccLogo from "../../assets/Vector.svg";
+// import bg_img from "../../assets/magicpattern-grid-pattern.svg";
+
 
 const Navbar = () => {
   return (
@@ -11,7 +13,7 @@ const Navbar = () => {
           href="/"
           className=" h-[74px] ml-2 sm:ml-4 md:ml-6 mt-3 pt-0 flex-shrink-0"
         >
-          <Image src="/Vector.svg" alt="Codechef_Logo" width={74} height={15} />
+          <Image src={ccLogo} alt="Codechef_Logo" width={74} height={15} />
         </Link>
 
         <ul
@@ -63,7 +65,7 @@ const Navbar = () => {
           marginTop: "-25px",
         }}
       >
-        <Image src="/mmLogo.png" alt="muscle mind logo" height={80} width={80} />
+        <Image src={mmLogo} alt="muscle mind logo" height={80} width={80} />
       </div>
       <div
         style={{
